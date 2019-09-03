@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String comando, nome, sobrenome, telefone;
-		Integer posicao;
+		int posicao;
 		Agenda agenda = new Agenda();
 		while(true) {
 			System.out.print("(C)adastrar Contato\n(L)istar Contatos\n(E)xibir Contato\n(S)air\n\nOpção> ");
@@ -17,11 +17,7 @@ public class Main {
 				break;
 			} else if(comando.equalsIgnoreCase("C")) {
 				System.out.print("\nPosição: ");
-				try {
-					posicao = Integer.parseInt(sc.nextLine());
-				} catch(Exception e) {
-					posicao = -1;
-				}
+					posicao = sc.nextInt();
 				if(1 > posicao || posicao > 100) {
 					System.out.println("POSIÇÃO INVÁLIDA!\n");
 				} else {
@@ -31,7 +27,6 @@ public class Main {
 					sobrenome = sc.nextLine();
 					System.out.print("Telefone: ");
 					telefone = sc.nextLine();
-					agenda.adicionaContato(posicao, nome, sobrenome, telefone);
 					System.out.println("CADASTRO REALIZADO!\n");
 				}
 			}else if(comando.equalsIgnoreCase("L")) {
