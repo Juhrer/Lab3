@@ -1,12 +1,33 @@
 package lab3;
 
+/**
+ * Representação de um contato.
+ * Todo contato tem um nome, um sobrenome, e um telefone.
+ * 
+ * @author Lucas Alves Vigolvino
+ */
 public class Contato {
+	/**
+	 * Nome, sobrenome e telefone do contato.
+	 */
 	private String nome, sobrenome, telefone;
+	/**
+	 * Constrói um contato a partir do seu nome, sobrenome e telefone.
+	 * 
+	 * @param nome o nome do contato
+	 * @param sobrenome o sobrenome do contato
+	 * @param telefone o telefone do contato
+	 */
 	public Contato(String nome, String sobrenome, String telefone) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.telefone = telefone;
 	}
+	/**
+	 * Retorna a impressão digital do contato, em relação oa seu nome e sobrenome.
+	 * 
+	 * @return a impressão digital do contato
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -15,31 +36,3 @@ public class Contato {
 		result = prime * result + ((sobrenome == null) ? 0 : sobrenome.hashCode());
 		return result;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Contato other = (Contato) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (sobrenome == null) {
-			if (other.sobrenome != null)
-				return false;
-		} else if (!sobrenome.equals(other.sobrenome))
-			return false;
-		return true;
-	}
-	public String formatacaoContato() {
-		return "\n" + nome + " " + sobrenome + " - " + telefone + "\n";
-	}
-	public String toString() {
-		return " - " + nome + " " + sobrenome;
-	}
-}
