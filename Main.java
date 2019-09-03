@@ -2,11 +2,17 @@ package lab3;
 
 import java.util.Scanner;
 
+/**
+ * Menu que interage diretamente com o usuário.
+ * Recebendo entradas e imprimindo saídas.
+ * 
+ * @author Lucas Alves Vigolvino
+ */
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String comando, nome, sobrenome, telefone;
-		int posicao;
+		Integer posicao;
 		Agenda agenda = new Agenda();
 		while(true) {
 			System.out.print("(C)adastrar Contato\n(L)istar Contatos\n(E)xibir Contato\n(S)air\n\nOpção> ");
@@ -17,17 +23,22 @@ public class Main {
 				break;
 			} else if(comando.equalsIgnoreCase("C")) {
 				System.out.print("\nPosição: ");
-					posicao = sc.nextInt();
-				if(1 > posicao || posicao > 100) {
-					System.out.println("POSIÇÃO INVÁLIDA!\n");
-				} else {
+				try {
+					posicao = Integer.parseInt(sc.nextLine());
+				} catch(Exception e) {
+					posicao = -1;
+				}
+				if(agenda.testaPosicao(posicao)) {
 					System.out.print("Nome: ");
 					nome = sc.nextLine();
 					System.out.print("Sobrenome: ");
 					sobrenome = sc.nextLine();
 					System.out.print("Telefone: ");
 					telefone = sc.nextLine();
+					agenda.adicionaContato(posicao, nome, sobrenome, telefone);
 					System.out.println("CADASTRO REALIZADO!\n");
+				} else {
+					System.out.println("POSIÇÃO INVÁLIDA!\n");
 				}
 			}else if(comando.equalsIgnoreCase("L")) {
 				System.out.println("\n" + agenda + "\n");
