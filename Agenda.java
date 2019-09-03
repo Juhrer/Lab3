@@ -1,5 +1,7 @@
 package lab3;
 
+import java.util.Arrays;
+
 public class Agenda {
 	private Contato[] contatos = new Contato[100];
 	private int count = 0;
@@ -13,7 +15,7 @@ public class Agenda {
 		if(this.contatos[posicao - 1] != null) {
 			return this.contatos[posicao -  1].formatacaoContato();
 		} else {
-			return "POSI«√O INV¡LIDA!\n";
+			return "POSI√á√ÉO INV√ÅLIDA!\n";
 		}
 	}
 	public String toString() {
@@ -27,7 +29,24 @@ public class Agenda {
 		}
 		return String.join("\n", contatosCadastrados);
 	}
-	public boolean equals(Agenda outraAgenda) {
-		return this.contatos == outraAgenda.contatos;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(contatos);
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Agenda other = (Agenda) obj;
+		if (!Arrays.equals(contatos, other.contatos))
+			return false;
+		return true;
 	}
 }
