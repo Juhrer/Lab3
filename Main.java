@@ -9,21 +9,21 @@ public class Main {
 		Integer posicao;
 		Agenda agenda = new Agenda();
 		while(true) {
-			System.out.print("(C)adastrar Contato\n(L)istar Contatos\n(E)xibir Contato\n(S)air\n\nOpÁ„o> ");
+			System.out.print("(C)adastrar Contato\n(L)istar Contatos\n(E)xibir Contato\n(S)air\n\nOp√ß√£o> ");
 			comando = sc.nextLine();
 		if(!comando.equalsIgnoreCase("S") && !comando.equalsIgnoreCase("C") && !comando.equalsIgnoreCase("E") && !comando.equalsIgnoreCase("L")) {
-			System.out.println("OP«√O INV¡LIDA!\n");
+			System.out.println("OP√á√ÉO INV√ÅLIDA!\n");
 			}else if(comando.equalsIgnoreCase("S")) {
 				break;
 			} else if(comando.equalsIgnoreCase("C")) {
-				System.out.print("\nPosiÁ„o: ");
+				System.out.print("\nPosi√ß√£o: ");
 				try {
 					posicao = Integer.parseInt(sc.nextLine());
 				} catch(Exception e) {
 					posicao = -1;
 				}
 				if(1 > posicao || posicao > 100) {
-					System.out.println("POSI«√O INV¡LIDA!\n");
+					System.out.println("POSI√á√ÉO INV√ÅLIDA!\n");
 				} else {
 					System.out.print("Nome: ");
 					nome = sc.nextLine();
